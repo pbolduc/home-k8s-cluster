@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  labels:
+    app: grafana
+  name: grafana
+  namespace: monitoring
+spec:
+  dnsNames: 
+    - grafana.local.bolduc.io
+  secretName: grafana-certificate-tls
+  secretTemplate:
+    labels:
+      app: grafana
+  issuerRef:
+    name: acme-issuer
+#    name: acme-staging-issuer
+    kind: ClusterIssuer

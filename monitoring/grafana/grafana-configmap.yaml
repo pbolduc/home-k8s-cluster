@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-configuration
+  namespace: monitoring
+data:
+  grafana.ini: |
+    [server]
+    http_addr =
+    http_port = 3000
+    domain = grafana.local.bolduc.io
+    root_url = https://grafana.local.bolduc.io:3000
+    cert_key = /etc/grafana/tls/tls.key
+    cert_file = /etc/grafana/tls/tls.crt
+    enforce_domain = False
+    protocol = https
